@@ -15,4 +15,20 @@ namespace ExamMaster.Domain.TestManager.Exceptions
         public TestManagerException(List<ErrorRecord> _errors) : base(_errors) { }
 
     }
+
+    public class QuestionException : DomainException
+    {
+        public QuestionException(string code, string message) : base(code, message) { }
+
+        public QuestionException(List<ErrorRecord> _errors) : base(_errors) { }
+
+    }
+
+    public class AnswerOptionException : DomainException
+    {
+        public AnswerOptionException(string code, string message) : base(code, message) { }
+
+        public AnswerOptionException(List<ErrorRecord> _errors) : base(_errors) { }
+
+    }
 }
