@@ -1,5 +1,8 @@
-﻿using ExamMaster.Shared.Abstractions;
+﻿using ExamMaster.Domain.TestManager.Exceptions;
+using ExamMaster.Shared.Abstractions;
 using ExamMaster.Shared.Extensions;
+using ExamMaster.Shared.Records;
+using FluentValidation;
 
 namespace ExamMaster.Domain.TestManager.Entities
 {
@@ -10,10 +13,10 @@ namespace ExamMaster.Domain.TestManager.Entities
     }
     public class QuestionEntity : EntityBase
     {
-        public string QuestionPrompt { get; private set; }
-        public QuestionType QuestionType { get; private  set; }
+        public string QuestionPrompt { get => GetProperty<String>(); private set => SetProperty(value); }
+        public QuestionType QuestionType { get => GetProperty<QuestionType>(); private set => SetProperty(value); }
 
-        public IEnumerable<AnswerOptionEntity> Answers { get; set; }
+        public List<AnswerOptionEntity> Answers { get => GetProperty<List<AnswerOptionEntity>>(); private set => SetProperty(value); }
 
         public QuestionEntity()
         {
@@ -29,16 +32,49 @@ namespace ExamMaster.Domain.TestManager.Entities
 
         public void ChangePrompt(string newPrompt)
         { 
-            if (QuestionPrompt.HasBeenChanged(newPrompt)) 
-            { 
-            
-            }
+            QuestionPrompt = newPrompt;
         }
 
+        public void ChangeType(QuestionType type)
+        {
+            QuestionType = type;
+        }
+
+        public void AddAnswer(AnswerOptionEntity answer)
+        { 
+            if (Answers == null) Answers = new List<AnswerOptionEntity> ();
+            Answers.Add(answer);
+        }
 
         public override bool Validate()
         {
-            throw new NotImplementedException();
+            var validator = new QuestionEntityValidator();
+            var validation = validator.Validate(this);
+            if (!validation.IsValid)
+            {
+                foreach (var error in validation.Errors)
+                    _errors.Add(new ErrorRecord(error.ErrorCode, error.ErrorMessage));
+                throw new TestManagerException(_errors);
+            }
+            return true;
+
+        }
+
+
+        private class QuestionEntityValidator : AbstractValidator<QuestionEntity>
+        {
+
+            public QuestionEntityValidator()
+            {
+
+                RuleFor(x => x.QuestionPrompt).NotEmpty().WithErrorCode("ERROR_QUESTION_PROMPT_001");
+
+                RuleFor(x => x.QuestionPrompt).MaximumLength(200).WithErrorCode("ERROR_QUESTION_PROMPT_002");
+
+                RuleFor(x => x.QuestionType).NotNull().WithErrorCode("ERROR_QUESTION_TYPE_003");
+
+            }
+
         }
     }
 }
