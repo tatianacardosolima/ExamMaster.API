@@ -54,7 +54,7 @@ namespace ExamMaster.Domain.TestManager.Entities
             {
                 foreach (var error in validation.Errors)
                     _errors.Add(new ErrorRecord(error.ErrorCode, error.ErrorMessage));
-                throw new TestManagerException(_errors);
+                throw new QuestionException(_errors);
             }
             return true;
 
