@@ -55,13 +55,31 @@ namespace ExamMaster.UnitTests.Entities
             var validated = entity.Validate();
 
             // Assert
-            Assert.True(validated);
-            entity.Should().NotBeNull();
+            DefaultShouldBe(validated, entity, title, description, effectivePeriod);            
+            entity.IsActive().Should().BeTrue();            
+
+        }
+        [Trait("Action", "CreateTestManager")]
+        [Fact]
+        public void Create_WithQuestions_ShouldConstructEntity()
+        {
+            // Arrange
+            var title = _faker.Lorem.Sentence(50).Truncate(200);
+            var description = _faker.Lorem.Sentence(50).Truncate(500);
+            var effectivePeriod = new EffectivePeriodValueObject(DateTime.Now, null);
+            var entity = new TestManagerEntity(title, description, effectivePeriod);
+            entity.AddQuestions(new QuestionEntity(_faker.Lorem.Text(), QuestionType.SingleOption));
+            entity.AddQuestions(new QuestionEntity(_faker.Lorem.Text(), QuestionType.MultipleOption));
+
+            // Act            
+            var validated = entity.Validate();
+
+            // Assert
+            DefaultShouldBe(validated, entity, title, description, effectivePeriod);
             entity.IsActive().Should().BeTrue();
-            entity.CreatedAt.Should().BeOnOrBefore(DateTime.UtcNow);
-            entity.Title.Should().Be(title);
-            entity.Description.Should().Be(description);
-            entity.EffectivePeriod.Should().Be(effectivePeriod);
+            entity.Questions.Should().HaveCount(2);
+            entity.Questions.Where(x => x.QuestionType == QuestionType.MultipleOption).Should().HaveCount(1);
+            entity.Questions.Where(x => x.QuestionType == QuestionType.SingleOption).Should().HaveCount(1);
 
         }
 
@@ -83,14 +101,10 @@ namespace ExamMaster.UnitTests.Entities
             entity.ChangeTitleAndDescription(newTitle, newDescription);
 
             // Assert
-            Assert.True(validated);
-            entity.Should().NotBeNull();
-            entity.IsActive().Should().BeTrue();
-            entity.CreatedAt.Should().BeOnOrBefore(DateTime.UtcNow);
+            DefaultShouldBe(validated, entity, newTitle, newDescription, effectivePeriod);                        
+            entity.IsActive().Should().BeTrue();            
             entity.ModifiedAt.Should().BeOnOrBefore(DateTime.UtcNow);
-            entity.Title.Should().Be(newTitle);
-            entity.Description.Should().Be(newDescription);
-            entity.EffectivePeriod.Should().Be(effectivePeriod);
+            
 
         }
 
@@ -111,14 +125,9 @@ namespace ExamMaster.UnitTests.Entities
             entity.ChangeEffectivePeriod(newEffectivePeriod);
 
             // Assert
-            Assert.True(validated);
-            entity.Should().NotBeNull();
-            entity.IsActive().Should().BeTrue();
-            entity.CreatedAt.Should().BeOnOrBefore(DateTime.UtcNow);
-            entity.ModifiedAt.Should().BeOnOrBefore(DateTime.UtcNow);
-            entity.Title.Should().Be(title);
-            entity.Description.Should().Be(description);
-            entity.EffectivePeriod.Should().Be(newEffectivePeriod);
+            DefaultShouldBe(validated, entity, title, description, newEffectivePeriod);            
+            entity.IsActive().Should().BeTrue();            
+            entity.ModifiedAt.Should().BeOnOrBefore(DateTime.UtcNow);            
 
         }
 
@@ -137,15 +146,47 @@ namespace ExamMaster.UnitTests.Entities
             entity.Inactivate();
 
             // Assert
+            DefaultShouldBe(validated, entity, title, description, effectivePeriod);            
+            entity.ModifiedAt.Should().BeOnOrBefore(DateTime.UtcNow);                        
+            entity.Active.Should().BeFalse();
+
+        }
+
+
+        [Trait("Action", "UpdateTestManager")]
+        [Fact]
+        public void Update_WithQuestions_ShouldConstructEntity()
+        {
+            // Arrange
+            var title = _faker.Lorem.Sentence(50).Truncate(200);
+            var description = _faker.Lorem.Sentence(50).Truncate(500);
+            var effectivePeriod = new EffectivePeriodValueObject(DateTime.Now, null);
+            var entity = new TestManagerEntity(title, description, effectivePeriod);
+            entity.AddQuestions(new QuestionEntity(_faker.Lorem.Text(), QuestionType.SingleOption));
+            entity.AddQuestions(new QuestionEntity(_faker.Lorem.Text(), QuestionType.MultipleOption));
+
+            // Act            
+            var validated = entity.Validate();
+            
+            entity.AddQuestions(new QuestionEntity(_faker.Lorem.Text(), QuestionType.MultipleOption));
+
+            // Assert
+            DefaultShouldBe(validated, entity, title, description, effectivePeriod);
+            entity.IsActive().Should().BeTrue();
+            entity.Questions.Should().HaveCount(3);
+            entity.Questions.Where(x => x.QuestionType == QuestionType.MultipleOption).Should().HaveCount(2);
+            entity.Questions.Where(x => x.QuestionType == QuestionType.SingleOption).Should().HaveCount(1);
+
+        }
+
+        public void DefaultShouldBe(bool validated, TestManagerEntity entity, string title, string description, EffectivePeriodValueObject effectivePeriod)
+        {
             Assert.True(validated);
-            entity.Should().NotBeNull();            
+            entity.Should().NotBeNull();
             entity.CreatedAt.Should().BeOnOrBefore(DateTime.UtcNow);
-            entity.ModifiedAt.Should().BeOnOrBefore(DateTime.UtcNow);
             entity.Title.Should().Be(title);
             entity.Description.Should().Be(description);
             entity.EffectivePeriod.Should().Be(effectivePeriod);
-            entity.Active.Should().BeFalse();
-
         }
     }
 }

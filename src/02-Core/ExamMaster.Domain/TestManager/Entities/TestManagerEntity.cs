@@ -8,17 +8,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using XAct;
 using static ExamMaster.Domain.TestManager.Entities.TestManagerEntity;
 
 namespace ExamMaster.Domain.TestManager.Entities
 {
     public class TestManagerEntity : EntityBase
     {
-        public string Title { get; private set; }
-        public string Description { get; private set; }
-        public EffectivePeriodValueObject EffectivePeriod { get; private set; }
+        public string Title { get => GetProperty<String>(); private set => SetProperty(value); }
+        public string Description { get => GetProperty<String>(); private set => SetProperty(value); }
+        public EffectivePeriodValueObject EffectivePeriod { get => GetProperty<EffectivePeriodValueObject>(); private set => SetProperty(value); }
 
-        public IEnumerable<QuestionEntity> Questions { get; private set; }
+        public List<QuestionEntity> Questions { get => GetProperty<List<QuestionEntity>>(); private set => SetProperty(value); }
 
         public TestManagerEntity()
         {
@@ -31,17 +32,16 @@ namespace ExamMaster.Domain.TestManager.Entities
             EffectivePeriod = effectivePeriod;
             Questions = new List<QuestionEntity>();
         }
+
+        public void AddQuestions(QuestionEntity question)
+        { 
+            if (Questions == null) { Questions = new List<QuestionEntity>(); }
+            Questions.Add(question);
+        }
         public void ChangeTitleAndDescription(string newTitle, string newDescription)
-        {
-            if (Title.HasBeenChanged(newTitle) || Description.HasBeenChanged(newDescription))
-                ModifiedAt = DateTime.Now;
-
-            if (Title.HasBeenChanged(newTitle)) 
-                Title = newTitle;
-            if (Description.HasBeenChanged(newDescription))
-                Description = newDescription;
-
-            
+        {            
+            Title = newTitle;
+            Description = newDescription;            
         }
 
         public void ChangeEffectivePeriod(EffectivePeriodValueObject effectivePeriod)
@@ -51,12 +51,9 @@ namespace ExamMaster.Domain.TestManager.Entities
             if (EffectivePeriod.StartDate.HasBeenChanged(effectivePeriod.StartDate)
                 || endDate.HasBeenChanged(effectivePeriod.EndDate.GetValueOrDefault()))
             {
-                ModifiedAt = DateTime.Now;
+              
                 EffectivePeriod = effectivePeriod;
-            }
-            
-
-
+            }            
         }
 
         public override bool Validate()

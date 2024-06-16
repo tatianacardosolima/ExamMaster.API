@@ -1,4 +1,5 @@
 ﻿using ExamMaster.Shared.Abstractions;
+using ExamMaster.Shared.Extensions;
 
 namespace ExamMaster.Domain.TestManager.Entities
 {
@@ -9,10 +10,31 @@ namespace ExamMaster.Domain.TestManager.Entities
     }
     public class QuestionEntity : EntityBase
     {
-        public string QuestionPrompt { get; set; }
-        public QuestionType QuestionType { get; set; }
+        public string QuestionPrompt { get; private set; }
+        public QuestionType QuestionType { get; private  set; }
 
-        public IEnumerable<AnswerOptionEntity> Questions { get; set; }
+        public IEnumerable<AnswerOptionEntity> Answers { get; set; }
+
+        public QuestionEntity()
+        {
+            Answers = new List<AnswerOptionEntity>();
+        }
+
+        public QuestionEntity(string prompt, QuestionType type)
+        {
+            QuestionPrompt = prompt;
+            QuestionType = type;
+            Answers = new List<AnswerOptionEntity>();
+        }
+
+        public void ChangePrompt(string newPrompt)
+        { 
+            if (QuestionPrompt.HasBeenChanged(newPrompt)) 
+            { 
+            
+            }
+        }
+
 
         public override bool Validate()
         {
