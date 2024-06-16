@@ -52,7 +52,7 @@ namespace ExamMaster.UnitTests.Entities
 
         [Fact]
         [Trait("Action", "CreateQuestion")]
-        public void Create_WithAnsewrs_ShouldConstructEntity()
+        public void Create_WithAnswers_ShouldConstructEntity()
         {
             // Arrange
             var prompt = _faker.Lorem.Sentence(50).Truncate(200);
