@@ -16,7 +16,18 @@ namespace ExamMaster.Domain.TakingTest.Interfaces
         Task<TestResultEntity> CreateAsync(TestResultRequest request);
     }
 
+    public interface ITestResultQuestionFactory
+    {
+        Task<TestResultQuestionEntity> CreateAsync(TestResultQuestionRequest requests);
+    }
+
     public interface ITestResultRepository : IRepository<TestResultEntity, int>
     {
+        Task<TestResultEntity> GetByUniqueIdAsync(Guid testResultId);
+    }
+
+    public interface ITestResultQuestionRepository : IRepository<TestResultQuestionEntity, int>
+    {
+        
     }
 }
