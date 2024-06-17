@@ -13,7 +13,11 @@ namespace ExamMaster.Domain.TestManager.ValueObjects
             StartDate = startDate;
             EndDate = endDate;
         }
-
+        public EffectivePeriodValueObject(DateTime startDate)
+        {
+            EffectivePeriodException.ThrowIfStartDateGreaterThanEndDate(startDate, null);
+            StartDate = startDate;            
+        }
         public DateTime StartDate { get; init; }
         public DateTime? EndDate { get; init; }
     }
