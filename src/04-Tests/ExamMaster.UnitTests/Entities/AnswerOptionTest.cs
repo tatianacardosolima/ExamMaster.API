@@ -112,7 +112,7 @@ namespace ExamMaster.UnitTests.Entities
             Assert.True(validated);
             entity.Should().NotBeNull();
             entity.CreatedAt.Should().BeOnOrBefore(DateTime.UtcNow);            
-            entity.Description.Should().Be(description);
+            entity.Answer.Should().Be(description);
             entity.IsCorrectAnswer.Should().Be(isCorrect);
             entity.IsActive().Should().Be(IsActive);
         }
