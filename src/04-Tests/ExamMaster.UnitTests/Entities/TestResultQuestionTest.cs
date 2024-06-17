@@ -2,7 +2,7 @@
 using ExamMaster.Domain.TakingTest.Entities;
 using ExamMaster.Domain.TestManager.Entities;
 using ExamMaster.Domain.TestManager.ValueObjects;
-using ExamMaster.Domain.Users;
+using ExamMaster.Domain.Users.Entities;
 using ExamMaster.Shared.Extensions;
 using FluentAssertions;
 using System;
@@ -54,7 +54,7 @@ namespace ExamMaster.UnitTests.Entities
         
         private UserEntity GetUser()
         {
-            return new UserEntity(_faker.Name.FullName());
+            return new UserEntity(_faker.Name.FullName(), _faker.Internet.Email());
         }
 
         private TestManagerEntity GetTestManager()

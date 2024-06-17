@@ -11,6 +11,7 @@ using ExamMaster.Domain.TestManager.Interfaces;
 using ExamMaster.Domain.TestManager.Requests;
 using ExamMaster.Domain.TestManager.ValueObjects;
 using ExamMaster.Domain.Users;
+using ExamMaster.Domain.Users.Entities;
 using ExamMaster.Domain.Users.Interfaces;
 using ExamMaster.Shared.Exceptions;
 using ExamMaster.Shared.Extensions;
@@ -89,7 +90,7 @@ namespace ExamMaster.UnitTests.Factories
         {
             Mock<IUserRepository> repository = new();
             repository.Setup(c => c.GetByUniqueIdAsync(uniqueid)).ReturnsAsync(
-                    new UserEntity(_faker.Name.FullName()));
+                    new UserEntity(_faker.Name.FullName(), _faker.Internet.Email())) ;
             return repository;
         }
 

@@ -1,5 +1,6 @@
 ﻿using ExamMaster.Domain.TakingTest.Entities;
 using ExamMaster.Domain.TakingTest.Requests;
+using ExamMaster.Domain.Users.Entities;
 using ExamMaster.Shared.Interfaces;
 using System;
 using System.Collections.Generic;
