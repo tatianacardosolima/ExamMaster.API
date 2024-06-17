@@ -1,14 +1,12 @@
 ﻿using Bogus;
-using Bogus.DataSets;
-using ExamMaster.Domain.TestManager;
 using ExamMaster.Domain.TestManager.Entities;
-using ExamMaster.Domain.TestManager.Exceptions;
+using ExamMaster.Domain.TestManager.ValueObjects;
 using ExamMaster.Shared.Extensions;
 using FluentAssertions;
 
 namespace ExamMaster.UnitTests.Entities
 {
-    
+
     public class TestManagerTest
     {
         private readonly Faker _faker = new ("pt_BR");

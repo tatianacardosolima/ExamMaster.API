@@ -1,4 +1,5 @@
 ﻿using ExamMaster.Domain.TestManager.Exceptions;
+using ExamMaster.Domain.TestManager.ValueObjects;
 using ExamMaster.Shared.Abstractions;
 using ExamMaster.Shared.Extensions;
 using ExamMaster.Shared.Records;
@@ -79,11 +80,9 @@ namespace ExamMaster.Domain.TestManager.Entities
                 
                 RuleFor(x => x.Title).NotEmpty().WithErrorCode("ERROR_TESTMANAGER_TITLE_001");
 
-                RuleFor(x => x.Title).MaximumLength(200).WithErrorCode("ERROR_TESTMANAGER_TITLE_002");
+                RuleFor(x => x.Title).MaximumLength(200).WithErrorCode("ERROR_TESTMANAGER_TITLE_002");                
 
-                RuleFor(x => x.Description).NotEmpty().WithErrorCode("ERROR_TESTMANAGER_DESCRIPTION_003");
-
-                RuleFor(x => x.Description).MaximumLength(500).WithErrorCode("ERROR_TESTMANAGER_DESCRIPTION_004");
+                RuleFor(x => x.Description).MaximumLength(500).WithErrorCode("ERROR_TESTMANAGER_DESCRIPTION_003");
 
             }
 

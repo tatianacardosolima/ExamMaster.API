@@ -1,11 +1,11 @@
 ﻿using ExamMaster.Domain.TestManager.Exceptions;
 
-namespace ExamMaster.Domain.TestManager
+namespace ExamMaster.Domain.TestManager.ValueObjects
 {
     public record EffectivePeriodValueObject
     {
         public EffectivePeriodValueObject()
-        {            
+        {
         }
         public EffectivePeriodValueObject(DateTime startDate, DateTime? endDate)
         {

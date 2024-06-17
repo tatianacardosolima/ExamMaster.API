@@ -1,4 +1,5 @@
-﻿using ExamMaster.Shared.Exceptions;
+﻿using ExamMaster.Domain.TestManager.Entities;
+using ExamMaster.Shared.Exceptions;
 using ExamMaster.Shared.Records;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,8 @@ namespace ExamMaster.Domain.TestManager.Exceptions
         public TestManagerException(string code, string message) : base(code, message) { }
 
         public TestManagerException(List<ErrorRecord> _errors) : base(_errors) { }
+
+        
 
     }
 
