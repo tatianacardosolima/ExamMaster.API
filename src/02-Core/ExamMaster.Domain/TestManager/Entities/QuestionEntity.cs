@@ -69,7 +69,7 @@ namespace ExamMaster.Domain.TestManager.Entities
 
                 RuleFor(x => x.QuestionPrompt).NotEmpty().WithErrorCode("ERROR_QUESTION_PROMPT_001");
 
-                RuleFor(x => x.QuestionPrompt).MaximumLength(200).WithErrorCode("ERROR_QUESTION_PROMPT_002");
+                RuleFor(x => x.QuestionPrompt).MaximumLength(300).WithErrorCode("ERROR_QUESTION_PROMPT_002");
 
                 RuleFor(x => x.QuestionType).NotNull().WithErrorCode("ERROR_QUESTION_TYPE_003");
 
