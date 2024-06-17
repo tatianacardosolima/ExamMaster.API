@@ -21,7 +21,7 @@ namespace ExamMaster.Domain.Users.Entities
         public DateTime? DateOfBirth { get; private set; }
 
         
-        public UserEntity(string name, string email, DateTime dateOfBirth)
+        public UserEntity(string name, string email, DateTime? dateOfBirth)
         {
             Name = name;
             Email = email;
@@ -62,7 +62,9 @@ namespace ExamMaster.Domain.Users.Entities
             if (!validation.IsValid)
             {
                 foreach (var error in validation.Errors)
-                    _errors.Add(new ErrorRecord(error.ErrorCode, error.ErrorMessage));
+                    _errors.Add(new ErrorRecord(
+                        error.ErrorCode == null? error.ErrorMessage: error.ErrorCode
+                        , error.ErrorMessage));
                 throw new UserException(_errors);
             }
             return true;
@@ -82,12 +84,12 @@ namespace ExamMaster.Domain.Users.Entities
 
                 RuleFor(x => x.Email).NotEmpty().WithErrorCode("ERROR_USER_EMAIL_003");
 
-                RuleFor(x => x.Name).MaximumLength(200).WithErrorCode("ERROR_USER_EMAIL_004");
+                RuleFor(x => x.Email).MaximumLength(200).WithErrorCode("ERROR_USER_EMAIL_004");
 
                 RuleFor(x => new { x.Email }).Custom((value, context) =>
                 {
                     if (!value.Email.IsValidEmail())
-                        context.AddFailure("Email inválido.");
+                        context.AddFailure("ERROR_USER_EMAIL_005");
                     
                 });
 
