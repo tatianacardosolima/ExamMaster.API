@@ -21,6 +21,8 @@ namespace ExamMaster.Shared.Exceptions
         public DomainException(List<ErrorRecord> _errors) : base(_errors.FirstOrDefault()?.Message)
         {
             Errors = _errors;            
+            Code = _errors.ElementAt(0).Code;
+            //Message = _errors.ElementAt(0).Message;
         }
 
         public string Code{ get; init; }
@@ -28,6 +30,7 @@ namespace ExamMaster.Shared.Exceptions
         {
             if (invalidRule) throw new DomainException(code, message);
         }
+        
         
     }
 }
