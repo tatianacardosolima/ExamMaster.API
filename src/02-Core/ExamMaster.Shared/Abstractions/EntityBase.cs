@@ -61,7 +61,7 @@ namespace ExamMaster.Shared.Abstractions
             return true;
         }
 
-        protected T GetProperty<T>([CallerMemberName] string propertyName = null)
+        protected T? GetProperty<T>([CallerMemberName] string propertyName = null)
         {
             _propertyValues.TryGetValue(propertyName, out var value);
             return value == null ? default : (T)value;

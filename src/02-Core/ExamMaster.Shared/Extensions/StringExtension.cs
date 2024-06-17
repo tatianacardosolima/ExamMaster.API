@@ -6,6 +6,14 @@ namespace ExamMaster.Shared.Extensions
 {
     public static class StringExtension
     {
+        public static bool IsValidEmail(this string email)
+        {
+
+            if (email == null || email == "") return false;
+            string pattern = @"^(?!\.)[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$";
+
+            return Regex.IsMatch(email, pattern);
+        }
         public static bool HasBeenChanged(this string text, string otherText)
         {
             return text != otherText;

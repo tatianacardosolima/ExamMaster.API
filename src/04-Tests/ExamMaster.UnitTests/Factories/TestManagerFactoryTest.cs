@@ -42,7 +42,6 @@ namespace ExamMaster.UnitTests.Factories
         {
             var request = Get();
             request.Title = null;
-
             
             TestManagerFactory factory = new(GetMockRepository(null).Object);
             TestManagerException exception = await Assert.ThrowsAsync<TestManagerException>(() => factory.CreateAsync(request));

@@ -1,7 +1,7 @@
 ﻿using ExamMaster.Domain.TakingTest.Exceptions;
 using ExamMaster.Domain.TestManager.Entities;
 using ExamMaster.Domain.TestManager.ValueObjects;
-using ExamMaster.Domain.Users;
+using ExamMaster.Domain.Users.Entities;
 using ExamMaster.Shared.Abstractions;
 using ExamMaster.Shared.Records;
 using FluentValidation;
