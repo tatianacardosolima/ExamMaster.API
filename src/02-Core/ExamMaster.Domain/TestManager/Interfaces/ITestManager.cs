@@ -15,8 +15,9 @@ namespace ExamMaster.Domain.TestManager.Interfaces
         Task<TestManagerEntity> CreateAsync(TestManagerRequest request);
     }
 
-    public interface ITestManagerRepository: IRepository<TestManagerEntity, int>
-    {        
+    public interface ITestManagerRepository : IRepository<TestManagerEntity, int>
+    {
+        Task<TestManagerEntity> GetByUniqueIdAsync(Guid testManagerId);
     }
 
     public interface ITestManagerFacade  
