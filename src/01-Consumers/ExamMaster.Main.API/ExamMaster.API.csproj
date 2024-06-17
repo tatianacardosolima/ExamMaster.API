@@ -10,6 +10,13 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\02-Core\ExamMaster.Domain\ExamMaster.Domain.csproj" />
+    <ProjectReference Include="..\..\02-Core\ExamMaster.Shared\ExamMaster.Shared.csproj" />
+    <ProjectReference Include="..\..\03-Adapters\ExamMaster.Database.Read\ExamMaster.Database.Read.csproj" />
+    <ProjectReference Include="..\..\03-Adapters\ExamMaster.Database.Write\ExamMaster.Database.Write.csproj" />
+  </ItemGroup>
+
   
 
 </Project>

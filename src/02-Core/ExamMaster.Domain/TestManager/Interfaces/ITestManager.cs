@@ -21,6 +21,6 @@ namespace ExamMaster.Domain.TestManager.Interfaces
 
     public interface ITestManagerFacade  
     {
-        Task<DefaultResponse> Create(TestManagerRequest request);
+        Task<DefaultResponse> CreateAsync(TestManagerRequest request);
     }
 }

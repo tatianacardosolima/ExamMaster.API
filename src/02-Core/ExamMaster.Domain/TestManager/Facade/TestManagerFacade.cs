@@ -27,7 +27,7 @@ namespace ExamMaster.Domain.TestManager.Facade
             _questionFactory = questionFactory;
             _answerFactory = answerFactory;
         }
-        public async Task<DefaultResponse> Create(TestManagerRequest request)
+        public async Task<DefaultResponse> CreateAsync(TestManagerRequest request)
         {
             TestManagerException.ThrowWhen(request == null, 
                     "ERROR_TESTMANAGER_REQUEST", "Os dados do testes não podem ser nulos");
