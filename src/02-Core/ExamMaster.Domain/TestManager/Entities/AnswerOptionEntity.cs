@@ -16,16 +16,16 @@ namespace ExamMaster.Domain.TestManager.Entities
 
         public AnswerOptionEntity(string description, bool isCorrectAnswer)
         {
-            Description = description;
+            Answer = description;
             IsCorrectAnswer = isCorrectAnswer;
         }
 
-        public string Description { get => GetProperty<String>(); private set => SetProperty(value); }
+        public string Answer { get => GetProperty<String>(); private set => SetProperty(value); }
         public bool IsCorrectAnswer { get; private set; }
 
         public void ChangeDescription(string newDescription)
         { 
-            Description = newDescription;
+            Answer = newDescription;
         }
 
         public void SetIncorrectAnswer()
@@ -59,11 +59,10 @@ namespace ExamMaster.Domain.TestManager.Entities
             public AnswerOptionValidator()
             {
 
-                RuleFor(x => x.Description).NotEmpty().WithErrorCode("ERROR_ANSWEROPTION_DESCRIPTION_001");
+                RuleFor(x => x.Answer).NotEmpty().WithErrorCode("ERROR_ANSWEROPTION_DESCRIPTION_001");
 
-                RuleFor(x => x.Description).MaximumLength(200).WithErrorCode("ERROR_ANSWEROPTION_DESCRIPTION_002");
+                RuleFor(x => x.Answer).MaximumLength(300).WithErrorCode("ERROR_ANSWEROPTION_DESCRIPTION_002");
 
-                RuleFor(x => x.IsCorrectAnswer).NotNull().WithErrorCode("ERROR_ANSWEROPTION_DESCRIPTION_003");
 
             }
 

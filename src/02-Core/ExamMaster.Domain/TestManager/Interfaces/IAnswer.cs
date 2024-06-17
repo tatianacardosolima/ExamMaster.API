@@ -10,17 +10,17 @@ using System.Threading.Tasks;
 
 namespace ExamMaster.Domain.TestManager.Interfaces
 {
-    public interface ITestManagerFactory
+    public interface IAnswerFactory
     {
-        Task<TestManagerEntity> CreateAsync(TestManagerRequest request);
+        Task<AnswerOptionEntity> CreateAsync(AnswerRequest request);
     }
 
-    public interface ITestManagerRepository: IRepository<TestManagerEntity, int>
-    {        
+    public interface IAnswerRepository : IRepository<AnswerOptionEntity, int>
+    {
     }
 
-    public interface ITestManagerFacade  
+    public interface IAnswerService
     {
-        Task<DefaultResponse> Create(TestManagerRequest request);
+        Task<DefaultResponse> Update(QuestionRequest request);
     }
 }

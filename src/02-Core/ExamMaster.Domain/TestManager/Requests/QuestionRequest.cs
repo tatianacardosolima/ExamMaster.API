@@ -12,7 +12,14 @@ namespace ExamMaster.Domain.TestManager.Requests
         public string QuestionPrompt { get ;set ; }
         public QuestionType QuestionType { get; set; }
 
-    }
+        public List<AnswerRequest> Answers{ get; set; }
 
+    }
+    public class AnswerRequest
+    {
+        public string Answer{ get; set; }
+        public bool IsCorrect { get; set; }
+
+    }
 
 }
