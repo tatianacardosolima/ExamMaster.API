@@ -15,7 +15,11 @@ namespace ExamMaster.Domain.TakingTest.Exceptions
 
         public TestResultException(List<ErrorRecord> _errors) : base(_errors) { }
 
-        
+        public  static new void ThrowWhen(bool invalidRule, string code, string message)
+        {
+            if (invalidRule) throw new TestResultException(code, message);
+        }
+
 
     }
 
