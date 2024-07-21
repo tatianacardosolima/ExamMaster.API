@@ -1,9 +1,11 @@
 ﻿using Common.Shared.Abstractions;
 using Common.Shared.Records;
 using FluentValidation;
+using MockExam.Manage.Domain.Answers.Entities;
 using MockExam.Manage.Domain.Answers.Exceptions;
+using MockExam.Manage.Domain.Mocks.Entities;
 
-namespace MockExam.Manage.Domain.Answers.Entities
+namespace MockExam.Manage.Domain.Questions.Entities
 {
     public enum QuestionType
     {
@@ -12,6 +14,8 @@ namespace MockExam.Manage.Domain.Answers.Entities
     }
     public class QuestionEntity : EntityBase<long>
     {
+
+        public MockEntity Mock { get => GetProperty<MockEntity>(); private set => SetProperty(value); }
         public string QuestionPrompt { get => GetProperty<string>(); private set => SetProperty(value); }
         public QuestionType QuestionType { get => GetProperty<QuestionType>(); private set => SetProperty(value); }
 

@@ -29,6 +29,16 @@ namespace Common.Shared.Abstractions
             Active = true;
         }
 
+        protected EntityBase(Guid createdBy)
+        {
+            Id = Guid.NewGuid();
+            CreatedAt = DateTime.UtcNow;
+            ModifiedAt = DateTime.UtcNow;
+            Active = true;
+            CreatedBy = createdBy;
+        }
+
+
         public bool IsActive()
         {
             return Active;

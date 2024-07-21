@@ -1,7 +1,7 @@
 ﻿using Common.Shared.Interfaces;
 using Common.Shared.Responses;
-using MockExam.Manage.Domain.Answers.Entities;
 using MockExam.Manage.Domain.Answers.Requests;
+using MockExam.Manage.Domain.Questions.Entities;
 
 namespace MockExam.Manage.Domain.Answers.Interfaces
 {

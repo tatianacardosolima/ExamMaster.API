@@ -2,6 +2,7 @@
 using Common.Shared.Records;
 using FluentValidation;
 using MockExam.Manage.Domain.Answers.Exceptions;
+using MockExam.Manage.Domain.Questions.Entities;
 
 namespace MockExam.Manage.Domain.Answers.Entities
 {
