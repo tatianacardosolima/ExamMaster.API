@@ -9,16 +9,32 @@ using MockExam.Manage.Domain.Questions.Entities;
 
 namespace MockExam.Manage.Domain.Mocks.Entities
 {
+    public enum Access
+    { 
+        Private = 0, Public=1
+    }
     public class MockEntity : EntityBase<Guid>
     {
         public string Title { get => GetProperty<string>(); private set => SetProperty(value); }
         public string Description { get => GetProperty<string>(); private set => SetProperty(value); }
         public EffectivePeriodValueObject EffectivePeriod { get => GetProperty<EffectivePeriodValueObject>(); private set => SetProperty(value); }
 
+        public string KeyWord { get; set; }
+        public Access Access { get; set; }
         public List<QuestionEntity> Questions { get => GetProperty<List<QuestionEntity>>(); private set => SetProperty(value); }
 
         public MockEntity()
         {
+            Questions = new List<QuestionEntity>();
+        }
+
+        public MockEntity(Guid user, string title, string description, Access access, string keyWord):
+            base(user)
+        {
+            Title = title;
+            Description = description;
+            Access = access;
+            KeyWord = keyWord;
             Questions = new List<QuestionEntity>();
         }
         public MockEntity(string title, string description, EffectivePeriodValueObject effectivePeriod)

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consumers", "Consumers", "{82213857-7A57-48D1-A723-73FF649F46B4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ports", "Ports", "{82213857-7A57-48D1-A723-73FF649F46B4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Adapters", "Adapters", "{B44F0E26-A2B4-489B-B63C-CA8B7379146E}"
 EndProject
@@ -51,7 +51,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MockExam.UnitTests", "Tests
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MockExam.IntegrationTests", "Tests\ExamMaster.IntegrationTests\MockExam.IntegrationTests.csproj", "{C40404E7-541F-4587-A7AE-8FB73AFB1DD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grpc.MockExam.Take.API", "MockExam\Take\Grpc.MockExam.Take.API\Grpc.MockExam.Take.API.csproj", "{58DE1994-05DC-4123-B158-4F681CA0534E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grpc.MockExam.Take.API", "MockExam\Take\Grpc.MockExam.Take.API\Grpc.MockExam.Take.API.csproj", "{58DE1994-05DC-4123-B158-4F681CA0534E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

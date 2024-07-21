@@ -1,9 +1,4 @@
-﻿using MockExam.Manage.Domain.Answers.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MockExam.Manage.Domain.Questions.Entities;
 
 namespace MockExam.Manage.Domain.Answers.Requests
 {

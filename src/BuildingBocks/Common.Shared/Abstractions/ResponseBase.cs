@@ -9,6 +9,7 @@ namespace Common.Shared.Abstractions
     public abstract class ResponseBase<TId> 
         where TId : struct
     {
+        public TId Id { get; set; }
         protected ResponseBase()
         {            
         }
