@@ -3,9 +3,11 @@ using Common.Shared.Extensions.ExamMaster.Shared.Extensions;
 using Common.Shared.Records;
 using Common.Shared.ValueObjects;
 using FluentValidation;
+using MockExam.Manage.Domain.Answers.Entities;
 using MockExam.Manage.Domain.Answers.Exceptions;
+using MockExam.Manage.Domain.Questions.Entities;
 
-namespace MockExam.Manage.Domain.Answers.Entities
+namespace MockExam.Manage.Domain.Mocks.Entities
 {
     public class MockEntity : EntityBase<Guid>
     {

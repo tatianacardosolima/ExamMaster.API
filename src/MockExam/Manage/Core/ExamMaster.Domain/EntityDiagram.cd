@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MockExam.Manage.Domain.Answers.Entities.AnswerOptionEntity">
+    <Position X="4.25" Y="1" Width="1.5" />
+    <NestedTypes>
+      <Class Name="MockExam.Manage.Domain.Answers.Entities.AnswerOptionEntity.AnswerOptionValidator" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Answers\Entities\AnswerOptionEntity.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAKAAAAAAAAQAAAACAAEAAAEBAAAAgAAAAA=</HashCode>
+      <FileName>Answers\Entities\AnswerOptionEntity.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Question" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MockExam.Manage.Domain.Mocks.Entities.MockEntity">
+    <Position X="1.5" Y="2.25" Width="1.5" />
+    <NestedTypes>
+      <Class Name="MockExam.Manage.Domain.Mocks.Entities.MockEntity.MockEntityValidator" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>MockExam\Entities\MockEntity.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AgAAAAABAACgAkAAAAACAAAAAAAEAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>MockExam\Entities\MockEntity.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Questions" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MockExam.Manage.Domain.Questions.Entities.QuestionEntity">
+    <Position X="7.5" Y="4.25" Width="1.5" />
+    <NestedTypes>
+      <Class Name="MockExam.Manage.Domain.Questions.Entities.QuestionEntity.QuestionEntityValidator" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Question\Entities\QuestionEntity.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIACAAAAgAAEAAAAACAAWAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Question\Entities\QuestionEntity.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Answers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="10" />
+</ClassDiagram>
