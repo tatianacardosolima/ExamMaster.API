@@ -16,7 +16,7 @@ namespace MockExam.Manage.Domain.Questions.Entities
     {
 
         public MockEntity Mock { get => GetProperty<MockEntity>(); private set => SetProperty(value); }
-        public string QuestionPrompt { get => GetProperty<string>(); private set => SetProperty(value); }
+        public string Statement { get => GetProperty<string>(); private set => SetProperty(value); }
         public QuestionType QuestionType { get => GetProperty<QuestionType>(); private set => SetProperty(value); }
 
         public List<AnswerOptionEntity> Answers { get => GetProperty<List<AnswerOptionEntity>>(); private set => SetProperty(value); }
@@ -28,14 +28,14 @@ namespace MockExam.Manage.Domain.Questions.Entities
 
         public QuestionEntity(string prompt, QuestionType type)
         {
-            QuestionPrompt = prompt;
+            Statement = prompt;
             QuestionType = type;
             Answers = new List<AnswerOptionEntity>();
         }
 
-        public void ChangePrompt(string newPrompt)
+        public void ChangeStatement(string statement)
         {
-            QuestionPrompt = newPrompt;
+            Statement = statement;
         }
 
         public void ChangeType(QuestionType type)
@@ -73,10 +73,11 @@ namespace MockExam.Manage.Domain.Questions.Entities
 
             public QuestionEntityValidator()
             {
+                RuleFor(x => x.Mock).NotEmpty().WithErrorCode("ERROR_QUESTION_PROMPT_004");
 
-                RuleFor(x => x.QuestionPrompt).NotEmpty().WithErrorCode("ERROR_QUESTION_PROMPT_001");
+                RuleFor(x => x.Statement).NotEmpty().WithErrorCode("ERROR_QUESTION_PROMPT_001");
 
-                RuleFor(x => x.QuestionPrompt).MaximumLength(300).WithErrorCode("ERROR_QUESTION_PROMPT_002");
+                RuleFor(x => x.Statement).MaximumLength(1000).WithErrorCode("ERROR_QUESTION_PROMPT_002");
 
                 RuleFor(x => x.QuestionType).NotNull().WithErrorCode("ERROR_QUESTION_TYPE_003");
 

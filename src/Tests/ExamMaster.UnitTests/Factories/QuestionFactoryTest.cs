@@ -20,7 +20,7 @@ namespace ExamMaster.UnitTests.Factories
             var request = Get();
             QuestionFactory factory = new(GetMockRepository(request.QuestionPrompt).Object);
             var entity = await factory.CreateAsync(request);
-            entity.QuestionPrompt.Should().Be(request.QuestionPrompt);
+            entity.Statement.Should().Be(request.QuestionPrompt);
             entity.QuestionType.Should().Be(request.QuestionType);
             
         }
@@ -55,7 +55,7 @@ namespace ExamMaster.UnitTests.Factories
         private Mock<IQuestionRepository> GetMockRepository(string QuestionPrompt)
         {
             Mock<IQuestionRepository> repository = new();
-            repository.Setup(c => c.ExistsAsync(x => x.QuestionPrompt == QuestionPrompt)).ReturnsAsync(false);
+            repository.Setup(c => c.ExistsAsync(x => x.Statement == QuestionPrompt)).ReturnsAsync(false);
             return repository;
         }
         private QuestionRequest Get()

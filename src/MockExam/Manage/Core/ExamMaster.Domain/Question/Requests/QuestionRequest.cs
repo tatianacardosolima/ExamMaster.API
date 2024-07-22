@@ -1,10 +1,12 @@
-﻿using MockExam.Manage.Domain.Questions.Entities;
+﻿using Common.Shared.Interfaces;
+using MockExam.Manage.Domain.Questions.Entities;
 
 namespace MockExam.Manage.Domain.Answers.Requests
 {
-    public class QuestionRequest
+    public class QuestionRequest: IRequest
     {
-        public string QuestionPrompt { get; set; }
+        public Guid MockId { get; set; }
+        public string Statement { get; set; }
         public QuestionType QuestionType { get; set; }
 
         public List<AnswerRequest> Answers { get; set; }

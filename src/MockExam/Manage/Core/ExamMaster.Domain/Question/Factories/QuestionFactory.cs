@@ -20,10 +20,11 @@ namespace MockExam.Manage.Domain.Answers.Factories
         {
             //var entity = _mapper.Map<TestManagerEntity>(request);
 
-            var entity = new QuestionEntity(request.QuestionPrompt, request.QuestionType);
+            var entity = new QuestionEntity(request.Statement, request.QuestionType);
             entity.Validate();
 
-            var exist = await _repository.ExistsAsync(x => x.QuestionPrompt.Equals(request.QuestionPrompt));
+            var exist = await _repository.ExistsAsync(x => x.Statement.Equals(request.Statement)
+                    && x.Mock.Id == request.MockId);
 
             QuestionException.ThrowWhen(exist, "ERROR_QUESTION_FACTORY_001", "Já existe uma questão com o mesmo enunciado");
 
