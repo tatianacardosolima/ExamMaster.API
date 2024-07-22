@@ -2,11 +2,14 @@
 using Common.Shared.Responses;
 using MockExam.Manage.Domain.Answers.Entities;
 using MockExam.Manage.Domain.Answers.Requests;
+using MockExam.Manage.Domain.MockExam.Response;
+using MockExam.Manage.Domain.Mocks.Entities;
+using MockExam.Manage.Domain.Question.Response;
 using MockExam.Manage.Domain.Questions.Entities;
 
 namespace MockExam.Manage.Domain.Answers.Interfaces
 {
-    public interface IQuestionFactory
+    public interface IQuestionFactory: IFactory<QuestionRequest, QuestionEntity, long>
     {
         Task<QuestionEntity> CreateAsync(QuestionRequest request);
     }
@@ -15,8 +18,9 @@ namespace MockExam.Manage.Domain.Answers.Interfaces
     {
     }
 
-    public interface IQuestionService
+    public interface IQuestionService : IService<QuestionEntity,
+            QuestionRequest, QuestionResponse, long>
     {
-        Task<DefaultResponse> Update(QuestionRequest request);
+        Task<DefaultResponse> ChangeStatementAsync(long id, string statement);
     }
 }

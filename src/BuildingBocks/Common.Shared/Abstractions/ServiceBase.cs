@@ -19,10 +19,10 @@ namespace Common.Shared.Abstractions
         where TResponse: ResponseBase<TId>
 
     {
-        protected readonly IRepository<TEntity, Guid> _repository;
+        protected readonly IRepository<TEntity, TId> _repository;
         protected readonly IFactory<TRequest, TEntity, TId> _factory;
 
-        public ServiceBase(IRepository<TEntity, Guid> repository,
+        public ServiceBase(IRepository<TEntity, TId> repository,
             IFactory<TRequest, TEntity, TId> factory)
         {
             _repository = repository;
@@ -51,7 +51,7 @@ namespace Common.Shared.Abstractions
             return new DefaultResponse(true, "Registro Alterado com sucesso", new { Id = entity.Id });
         }
 
-        public virtual async Task<DefaultResponse> DeleteAsync(Guid id)
+        public virtual async Task<DefaultResponse> DeleteAsync(TId id)
         {
 
             TEntity entity = await _repository.GetByIdAsync(id);
@@ -63,7 +63,7 @@ namespace Common.Shared.Abstractions
             return new DefaultResponse(true, "Registro excluído");
         }
 
-        public virtual async Task<DefaultResponse> GetByIdAsync(Guid id)
+        public virtual async Task<DefaultResponse> GetByIdAsync(TId id)
         {
             var entity = await _repository.GetByIdAsync(id);
             NotFoundException.ThrowWhenNullEntity(entity, "Registro não encontrado");

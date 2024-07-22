@@ -16,8 +16,8 @@ namespace Common.Shared.Interfaces
         where TId: struct
     {
         Task<DefaultResponse> InsertAsync(TRequest request);
-        Task<DefaultResponse> DeleteAsync(Guid uniqueId);
+        Task<DefaultResponse> DeleteAsync(TId id);
         Task<DefaultResponse> UpdateAsync(TRequest request);
-        Task<DefaultResponse> GetByIdAsync(Guid id);
+        Task<DefaultResponse> GetByIdAsync(TId id);
     }
 }
