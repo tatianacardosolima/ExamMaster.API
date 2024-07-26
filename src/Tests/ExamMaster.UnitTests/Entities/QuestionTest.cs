@@ -2,6 +2,7 @@
 using Common.Shared.Extensions;
 using FluentAssertions;
 using MockExam.Manage.Domain.Answers.Entities;
+using MockExam.Manage.Domain.Questions.Entities;
 
 namespace ExamMaster.UnitTests.Entities
 {
@@ -83,7 +84,7 @@ namespace ExamMaster.UnitTests.Entities
                 
             // Act
             var validated = entity.Validate();
-            entity.ChangePrompt(newprompt);
+            entity.ChangeStatement(newprompt);
             // Assert            
             DefaultShouldBe(validated, entity, newprompt, QuestionType.SingleOption, true);
             entity.Answers.Should().HaveCount(2);
@@ -162,7 +163,7 @@ namespace ExamMaster.UnitTests.Entities
             Assert.True(validated);
             entity.Should().NotBeNull();
             entity.CreatedAt.Should().BeOnOrBefore(DateTime.UtcNow);            
-            entity.QuestionPrompt.Should().Be(prompt);
+            entity.Statement.Should().Be(prompt);
             entity.QuestionType.Should().Be(type);
             entity.IsActive().Should().Be(IsActive);
         }

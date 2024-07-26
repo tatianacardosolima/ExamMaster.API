@@ -7,6 +7,7 @@ using MockExam.Manage.Domain.Answers.Interfaces;
 using MockExam.Manage.Domain.Answers.Requests;
 using static Common.Shared.Extensions.StringExtension;
 using Moq;
+using MockExam.Manage.Domain.Questions.Entities;
 
 namespace ExamMaster.UnitTests.Factories
 {
@@ -18,9 +19,9 @@ namespace ExamMaster.UnitTests.Factories
         public async Task CreateAsync_Question_ShouldCreate()
         {
             var request = Get();
-            QuestionFactory factory = new(GetMockRepository(request.QuestionPrompt).Object);
+            QuestionFactory factory = new(GetMockRepository(request.Statement).Object);
             var entity = await factory.CreateAsync(request);
-            entity.Statement.Should().Be(request.QuestionPrompt);
+            entity.Statement.Should().Be(request.Statement);
             entity.QuestionType.Should().Be(request.QuestionType);
             
         }
@@ -30,7 +31,7 @@ namespace ExamMaster.UnitTests.Factories
         public async Task CreateAsync_NullPrompt_ShouldError()
         {
             var request = Get();
-            request.QuestionPrompt = null;
+            request.Statement = null;
 
             QuestionFactory factory = new(GetMockRepository(null).Object);
             QuestionException exception = await Assert.ThrowsAsync<QuestionException>(() => factory.CreateAsync(request));
@@ -43,9 +44,9 @@ namespace ExamMaster.UnitTests.Factories
         public async Task CreateAsync_PromptMoreThan300_ShouldError()
         {
             var request = Get();
-            request.QuestionPrompt = _faker.Lorem.Sentence(501);
+            request.Statement = _faker.Lorem.Sentence(501);
 
-            QuestionFactory factory = new(GetMockRepository(request.QuestionPrompt).Object);
+            QuestionFactory factory = new(GetMockRepository(request.Statement).Object);
             QuestionException exception = await Assert.ThrowsAsync<QuestionException>(() => factory.CreateAsync(request));
             exception.Message.Should().NotBeNullOrEmpty();
             exception.Code.Should().Be("ERROR_QUESTION_PROMPT_002");
@@ -62,7 +63,7 @@ namespace ExamMaster.UnitTests.Factories
         {
             return new QuestionRequest()
             {
-                QuestionPrompt = _faker.Lorem.Sentence(50).Truncate(200),
+                Statement = _faker.Lorem.Sentence(50).Truncate(200),
                 QuestionType = QuestionType.SingleOption
             }; 
         }
