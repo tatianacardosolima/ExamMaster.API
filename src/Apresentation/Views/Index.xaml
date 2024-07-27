@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maui.MockExam.Apresentation.Views.Index"
+             Title="Index">
+   
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Criar Simulado" Clicked="OnCriarSimuladoClicked"/>
+        <ToolbarItem Text="Perfil" Clicked="OnPerfilClicked"/>
+        <ToolbarItem Text="Fale Conosco" Clicked="OnFaleConoscoClicked"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Padding="10">
+        <Label Text="Feed de Simulados" FontSize="Large" />
+        <ListView x:Name="FeedMockExam">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Title}" Detail="{Binding Detail}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

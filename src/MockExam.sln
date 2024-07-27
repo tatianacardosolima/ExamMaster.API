@@ -53,6 +53,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MockExam.IntegrationTests",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grpc.MockExam.Take.API", "MockExam\Take\Grpc.MockExam.Take.API\Grpc.MockExam.Take.API.csproj", "{58DE1994-05DC-4123-B158-4F681CA0534E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maui.MockExam.Apresentation", "Apresentation\Maui.MockExam.Apresentation.csproj", "{47C86A58-C9FC-49D1-B547-7E2EAD3DD308}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,12 @@ Global
 		{58DE1994-05DC-4123-B158-4F681CA0534E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58DE1994-05DC-4123-B158-4F681CA0534E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58DE1994-05DC-4123-B158-4F681CA0534E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47C86A58-C9FC-49D1-B547-7E2EAD3DD308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47C86A58-C9FC-49D1-B547-7E2EAD3DD308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47C86A58-C9FC-49D1-B547-7E2EAD3DD308}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{47C86A58-C9FC-49D1-B547-7E2EAD3DD308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47C86A58-C9FC-49D1-B547-7E2EAD3DD308}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47C86A58-C9FC-49D1-B547-7E2EAD3DD308}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -133,6 +141,7 @@ Global
 		{D79DF8D4-51F4-483B-9B3A-5FCF4EAAEBA7} = {FFC31768-C374-4FB8-88C4-1CFBA71475BB}
 		{C40404E7-541F-4587-A7AE-8FB73AFB1DD1} = {FFC31768-C374-4FB8-88C4-1CFBA71475BB}
 		{58DE1994-05DC-4123-B158-4F681CA0534E} = {302E7792-D0BB-42E8-98EC-2ECC06BD8317}
+		{47C86A58-C9FC-49D1-B547-7E2EAD3DD308} = {F648AA34-95C7-422C-A650-9CDDDF9417C6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {916DE686-A4AD-4E6F-AAA3-A3381027FAF6}
