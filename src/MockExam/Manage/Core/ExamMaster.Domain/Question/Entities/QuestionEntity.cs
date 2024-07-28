@@ -1,4 +1,5 @@
 ﻿using Common.Shared.Abstractions;
+using Common.Shared.Enums;
 using Common.Shared.Records;
 using FluentValidation;
 using MockExam.Manage.Domain.Answers.Entities;
@@ -7,11 +8,7 @@ using MockExam.Manage.Domain.Mocks.Entities;
 
 namespace MockExam.Manage.Domain.Questions.Entities
 {
-    public enum QuestionType
-    {
-        SingleOption,
-        MultipleOption
-    }
+   
     public class QuestionEntity : EntityBase<long>
     {
 

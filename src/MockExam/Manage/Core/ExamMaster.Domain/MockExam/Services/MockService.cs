@@ -1,9 +1,9 @@
-﻿using MockExam.Manage.Domain.Answers.Interfaces;
-using MockExam.Manage.Domain.Answers.Requests;
+﻿using Common.Shared.Abstractions;
+using Common.Shared.Records.Requests;
+using Common.Shared.Responses;
+using MockExam.Manage.Domain.Answers.Interfaces;
 using MockExam.Manage.Domain.MockExam.Response;
 using MockExam.Manage.Domain.Mocks.Entities;
-using Common.Shared.Abstractions;
-using Common.Shared.Responses;
 
 namespace MockExam.Manage.Domain.Answers.Services
 {

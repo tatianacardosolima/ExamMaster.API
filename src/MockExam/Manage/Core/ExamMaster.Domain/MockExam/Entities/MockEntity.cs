@@ -1,4 +1,5 @@
 ﻿using Common.Shared.Abstractions;
+using Common.Shared.Enums;
 using Common.Shared.Extensions.ExamMaster.Shared.Extensions;
 using Common.Shared.Records;
 using Common.Shared.ValueObjects;
@@ -9,10 +10,7 @@ using MockExam.Manage.Domain.Questions.Entities;
 
 namespace MockExam.Manage.Domain.Mocks.Entities
 {
-    public enum Access
-    { 
-        Private = 0, Public=1
-    }
+    
     public class MockEntity : EntityBase<Guid>
     {
         public string Title { get => GetProperty<string>(); private set => SetProperty(value); }
