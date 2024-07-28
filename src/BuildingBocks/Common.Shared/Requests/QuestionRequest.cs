@@ -1,5 +1,6 @@
 ﻿using Common.Shared.Enums;
 using Common.Shared.Interfaces;
+using Common.Shared.Requests;
 
 namespace Common.Shared.Records.Requests
 {

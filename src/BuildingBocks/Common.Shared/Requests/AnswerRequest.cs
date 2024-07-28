@@ -1,6 +1,6 @@
 ﻿using Common.Shared.Interfaces;
 
-namespace Common.Shared.Records.Requests
+namespace Common.Shared.Requests
 {
 
     public class AnswerRequest
