@@ -13,11 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\BuildingBocks\Common.Shared\Common.Shared.csproj" />
+    <Folder Include="Answers\Services\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Answers\Services\" />
+    <ProjectReference Include="..\..\BuildingBocks\Common.Shared\Common.Shared.csproj" />
   </ItemGroup>
 
 </Project>

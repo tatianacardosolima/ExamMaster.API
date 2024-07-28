@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+ 
+  <ItemGroup>
+    <Protobuf Include="Protos\*.proto" GrpcServices="Server" />
+  </ItemGroup>
+ 
+  <ItemGroup>
+    <Content Remove="Users\Properties\launchSettings.json" />
+  </ItemGroup>
+ 
+  <ItemGroup>
+    <None Remove="Protos\user.proto" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Dapper" Version="2.1.35" />
+    <PackageReference Include="Dapper.Contrib" Version="2.0.78" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.65.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BuildingBocks\Commom.Logging\Common.Logging.csproj" />
+    <ProjectReference Include="..\..\BuildingBocks\Common.Password\Common.Password.csproj" />
+    <ProjectReference Include="..\..\BuildingBocks\Common.Shared\Common.Shared.csproj" />
+    <ProjectReference Include="..\ExamMaster.Domain\MockExam.Manage.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Users\Properties\launchSettings.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+
+
+
+  
+
+</Project>

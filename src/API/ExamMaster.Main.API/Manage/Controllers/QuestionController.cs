@@ -1,9 +1,9 @@
-﻿using Common.Shared.Responses;
+﻿using Common.Shared.Records.Requests;
+using Common.Shared.Responses;
 using Microsoft.AspNetCore.Mvc;
 using MockExam.Manage.Domain.Answers.Interfaces;
-using MockExam.Manage.Domain.Answers.Requests;
 
-namespace MockExam.Manage.API.Controllers
+namespace MockExam.Manage.API.Manage.Controllers
 {
     [ApiController]
     [Route("mocks-manager")]

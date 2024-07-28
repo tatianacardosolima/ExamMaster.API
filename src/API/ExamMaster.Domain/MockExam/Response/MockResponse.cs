@@ -1,4 +1,5 @@
 ﻿using Common.Shared.Abstractions;
+using Common.Shared.Enums;
 using MockExam.Manage.Domain.Mocks.Entities;
 
 namespace MockExam.Manage.Domain.MockExam.Response

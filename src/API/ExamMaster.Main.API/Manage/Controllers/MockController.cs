@@ -3,12 +3,12 @@ using Common.Shared.Responses;
 using Microsoft.AspNetCore.Mvc;
 using MockExam.Manage.Domain.Answers.Interfaces;
 
-namespace ExamMaster.API.Controllers
+namespace MockExam.Manage.API.Manage.Controllers
 {
     [ApiController]
     [Route("mocks-manager")]
     public class MockController : ControllerBase
-    {        
+    {
         private readonly ILogger<MockController> _logger;
         private readonly IMockService _service;
 
