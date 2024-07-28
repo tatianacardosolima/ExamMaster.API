@@ -1,0 +1,73 @@
+﻿@page "/mock"
+@page "/mock/{Id:int}"
+
+@using Common.Shared.Records.Requests
+@using Common.Shared.Responses
+@rendermode InteractiveAuto
+<h3>Simulado</h3>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Gerenciar Simulado</h3>
+                </div>
+                <div class="card-body">
+                    <EditForm Model="MockRequest" OnValidSubmit="HandleSalvar" FormName="Cliente">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
+                        <div class="form-group m-3">
+                            <label asp-for="Title" class="control-label">Título</label>
+                            <input asp-for="Title" class="form-control" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+                        <div class="form-group m-3">
+                            <label asp-for="Description" class="control-label">Descrição</label>
+                            <textarea asp-for="Description" class="form-control"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                        <div class="form-group m-3">
+                            <button type="button" class="btn btn-primary">Salvar</button>
+                            <button type="button" class="btn btn-primary">Adicionar Questões</button>
+                        </div>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+
+    public UpdMockRequest MockRequest { get; set; } = new();
+    [Parameter] public Guid Id { get; set; }
+
+    private async Task HandleSalvar()
+    {
+        var response = new DefaultResponse();
+        if (Id != Guid.Empty)
+            response = await _mockExamService.PutAsync(MockRequest);        
+        else        
+            response = await _mockExamService.PostAsync((MockRequest)MockRequest);
+        
+        if (response.IsSuccess)
+        {
+
+        }
+
+        
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Id != Guid.Empty){
+            var response = await _mockExamService.GetByIdAsync(Id);
+            if (response.IsSuccess)
+            {
+                MockRequest = (UpdMockRequest)response.Data;
+            }
+        }
+    }
+}

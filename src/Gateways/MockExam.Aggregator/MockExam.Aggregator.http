@@ -1,6 +1,0 @@
-@MockExam.Aggregator_HostAddress = http://localhost:5237
-
-GET {{MockExam.Aggregator_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
