@@ -29,6 +29,7 @@ namespace MockExam.Manage.Domain.Mocks.Entities
         public MockEntity(Guid user, string title, string description, Access access, string keyWord):
             base(user)
         {
+            Id = Guid.NewGuid();
             Title = title;
             Description = description;
             Access = access;

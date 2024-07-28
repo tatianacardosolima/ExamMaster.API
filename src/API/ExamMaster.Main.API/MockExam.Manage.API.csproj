@@ -23,6 +23,10 @@
     <PackageReference Include="Dapper" Version="2.1.35" />
     <PackageReference Include="Dapper.Contrib" Version="2.0.78" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.65.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
@@ -30,6 +34,7 @@
     <ProjectReference Include="..\..\BuildingBocks\Commom.Logging\Common.Logging.csproj" />
     <ProjectReference Include="..\..\BuildingBocks\Common.Password\Common.Password.csproj" />
     <ProjectReference Include="..\..\BuildingBocks\Common.Shared\Common.Shared.csproj" />
+    <ProjectReference Include="..\ExamMaster.Database.Write\MockExam.Manage.Database.Write.csproj" />
     <ProjectReference Include="..\ExamMaster.Domain\MockExam.Manage.Domain.csproj" />
   </ItemGroup>
 

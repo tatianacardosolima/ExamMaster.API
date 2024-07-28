@@ -1,6 +1,7 @@
 ﻿using Common.Shared.Records.Requests;
 using MockExam.Manage.Domain.Answers.Exceptions;
 using MockExam.Manage.Domain.Answers.Interfaces;
+using MockExam.Manage.Domain.MockExam.Interfaces;
 using MockExam.Manage.Domain.Mocks.Entities;
 
 namespace MockExam.Manage.Domain.Answers.Factories

@@ -9,7 +9,7 @@ using Common.Shared.Abstractions;
 namespace Common.Shared.Interfaces
 {
     public interface IRepository<T, in TId>
-           where T : IEntity
+           where T : IEntity<TId>
            where TId : struct           
     {
         Task InsertAsync(T entity);
