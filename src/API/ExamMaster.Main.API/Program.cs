@@ -1,4 +1,11 @@
+using MockExam.Manage.API.Setup;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDependencyDatabase(builder.Configuration);
+builder.Services.AddDependencyRepository();
+builder.Services.AddDependencyFactory();
+builder.Services.AddDependencyService();
 
 // Add services to the container.
 builder.Services.AddGrpc();

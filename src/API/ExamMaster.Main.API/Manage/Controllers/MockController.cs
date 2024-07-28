@@ -2,6 +2,7 @@ using Common.Shared.Records.Requests;
 using Common.Shared.Responses;
 using Microsoft.AspNetCore.Mvc;
 using MockExam.Manage.Domain.Answers.Interfaces;
+using MockExam.Manage.Domain.MockExam.Interfaces;
 
 namespace MockExam.Manage.API.Manage.Controllers
 {

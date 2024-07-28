@@ -11,10 +11,10 @@ using Common.Shared.Records;
 
 namespace Common.Shared.Abstractions
 {
-    public abstract class EntityBase<TId>: IEntity
+    public abstract class EntityBase<TId>: IEntity<TId>
         where TId : struct
     {
-        public Guid Id { get; }
+        public TId Id { get; protected set; }
         public DateTime CreatedAt { get; protected set; }
         public DateTime? ModifiedAt { get; protected set; }
         public Guid CreatedBy { get; protected set; }
@@ -23,7 +23,7 @@ namespace Common.Shared.Abstractions
 
         protected EntityBase()
         {
-            Id = Guid.NewGuid();
+            //Id = Guid.NewGuid();
             CreatedAt = DateTime.UtcNow;
             ModifiedAt = DateTime.UtcNow;
             Active = true;
@@ -31,7 +31,7 @@ namespace Common.Shared.Abstractions
 
         protected EntityBase(Guid createdBy)
         {
-            Id = Guid.NewGuid();
+            //Id = Guid.NewGuid();
             CreatedAt = DateTime.UtcNow;
             ModifiedAt = DateTime.UtcNow;
             Active = true;

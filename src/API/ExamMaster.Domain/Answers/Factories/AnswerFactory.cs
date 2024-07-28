@@ -16,7 +16,7 @@ namespace MockExam.Manage.Domain.Answers.Factories
             //_mapper = mapper;
             _repository = repository;
         }
-        public async Task<AnswerOptionEntity> CreateAsync(AnswerRequest request)
+        public async Task<AnswerOptionEntity> CreateAsync(UpdAnswerRequest request)
         {
             //var entity = _mapper.Map<TestManagerEntity>(request);
 

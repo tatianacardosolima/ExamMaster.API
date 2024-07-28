@@ -1,11 +1,11 @@
 ﻿using Common.Shared.Abstractions;
 using Common.Shared.Records.Requests;
 using Common.Shared.Responses;
-using MockExam.Manage.Domain.Answers.Interfaces;
+using MockExam.Manage.Domain.MockExam.Interfaces;
 using MockExam.Manage.Domain.MockExam.Response;
 using MockExam.Manage.Domain.Mocks.Entities;
 
-namespace MockExam.Manage.Domain.Answers.Services
+namespace MockExam.Manage.Domain.MockExam.Services
 {
 
     public class MockService : ServiceBase<MockEntity,

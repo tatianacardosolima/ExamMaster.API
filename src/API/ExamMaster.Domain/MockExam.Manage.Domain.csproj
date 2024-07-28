@@ -13,10 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Answers\Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\BuildingBocks\Common.Shared\Common.Shared.csproj" />
   </ItemGroup>
 
